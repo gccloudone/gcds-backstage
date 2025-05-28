@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-theme-gcds
+  title: '@gccloudone/plugin-gcds-backstage'
+spec:
+  lifecycle: experimental
+  type: backstage-theme-gcds
+  owner: gccloudone
