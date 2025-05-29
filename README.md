@@ -12,8 +12,8 @@ Install this plugin:
 
 ```shell
 # From your Backstage root directory
-git clone https://github.com/gccloudone/gcds-backstage plugins/
-yarn --cwd packages/app add @gccloudone/plugin-gcds-backstage
+git clone https://github.com/gccloudone/gcds-backstage plugins/gcds-backstage
+yarn --cwd packages/app @gccloudone/plugin-gcds-backstage@workspace:plugins/plugin-gcds-backstage
 ```
 
 ## Theme installation
