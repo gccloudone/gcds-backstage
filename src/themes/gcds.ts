@@ -172,8 +172,20 @@ export const gcdsTheme = createUnifiedTheme({
           paddingBottom: theme.spacing(5),
         }),
         title: () => ({
-          color: tokens.GcdsTextSecondary,
-          fontWeight: 100,
+          color: tokens.GcdsTextPrimary,
+          fontWeight: tokens.GcdsFontWeightsBold,
+          fontSize: tokens.GcdsFontSizesH1,
+          fontFamily: tokens.GcdsFontFamiliesHeading,
+          marginBlockEnd: tokens.GcdsSpacing300,
+          '&::after': {
+            content: '""',
+            display: 'block',
+            position: 'absolute',
+            width: tokens.GcdsHeadingH1BorderWidth,
+            height: tokens.GcdsHeadingH1BorderHeight,
+            backgroundColor: tokens.GcdsHeadingH1BorderBackground,
+            marginBlockStart: tokens.GcdsHeadingH1BorderMargin,
+          }
         }),
         subtitle: () => ({
           color: alpha(tokens.GcdsTextSecondary, 0.8),
@@ -360,6 +372,8 @@ export const gcdsTheme = createUnifiedTheme({
     MuiCardHeader: {
       styleOverrides: {
         root: {
+          backgroundColor: tokens.GcdsColorGrayscale500,
+          color: tokens.GcdsTextLight,
           // Reduce padding between header and content
           paddingBottom: 0
         }

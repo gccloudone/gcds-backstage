@@ -273,9 +273,8 @@ export const GcdsHomePageCards = () => {
         <GcdsHeading tag="h2">
           Get support from the developer community
         </GcdsHeading>
-        <GcdsText>
-          We're all here to help! Connect with other developers across the GC
-          and ask questions to improve your knowledge.
+        <GcdsText marginTop="300" character-limit="false">
+          We're all here to help! Connect with other developers across the GC and ask questions to improve your knowledge.
         </GcdsText>
 
         <ItemCardGrid classes={{ root: classes.cardGrid }}>
