@@ -10,7 +10,6 @@ import {
   CardContent,
   CardMedia,
   makeStyles,
-  Typography,
   Box,
   Grid,
   withStyles,
@@ -94,7 +93,7 @@ const CardButton = ({ children, ...props }: PropsWithChildren<LinkProps>) => {
   );
 };
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles({
   cardGroup: {
     paddingTop: 20,
   },
@@ -126,7 +125,7 @@ const useStyles = makeStyles(theme => ({
     marginRight: `-${20}`,
     background: tokens.GcdsBgLight,
   },
-}));
+});
 
 export const GcdsHomePageCards = () => {
   const classes = useStyles();

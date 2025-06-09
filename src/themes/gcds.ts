@@ -171,14 +171,14 @@ export const gcdsTheme = createUnifiedTheme({
           boxShadow: 'unset',
           paddingBottom: theme.spacing(5),
         }),
-        title: ({ theme }) => ({
+        title: () => ({
           color: tokens.GcdsTextSecondary,
           fontWeight: 100,
         }),
-        subtitle: ({ theme }) => ({
+        subtitle: () => ({
           color: alpha(tokens.GcdsTextSecondary, 0.8),
         }),
-        type: ({ theme }) => ({
+        type: () => ({
           color: alpha(tokens.GcdsTextSecondary, 0.8),
         }),
       },
@@ -214,7 +214,7 @@ export const gcdsTheme = createUnifiedTheme({
     },
     BackstageIconLinkVertical: {
       styleOverrides: {
-        primary: ({ theme }) => ({
+        primary: () => ({
           color: tokens.GcdsTextSecondary,
         }),
       },
@@ -267,7 +267,7 @@ export const gcdsTheme = createUnifiedTheme({
     },
     BackstageTableToolbar: {
       styleOverrides: {
-        root: ({ theme }) => ({
+        root: () => ({
           borderRadius: 3,
           backgroundColor: tokens.GcdsColorGrayscale500,
           border: tokens.GcdsColorBlue500,
@@ -281,28 +281,28 @@ export const gcdsTheme = createUnifiedTheme({
         root: {
           borderRadius: 0,
         },
-        standardError: ({ theme }) => ({
+        standardError: () => ({
           color: tokens.GcdsAlertDangerText,
           backgroundColor: tokens.GcdsAlertDangerBackground,
           '& $icon': {
             color: tokens.GcdsAlertDangerText,
           },
         }),
-        standardInfo: ({ theme }) => ({
+        standardInfo: () => ({
           color: tokens.GcdsAlertSuccessText,
           backgroundColor: tokens.GcdsAlertSuccessBackground,
           '& $icon': {
             color: tokens.GcdsAlertSuccessText,
           },
         }),
-        standardSuccess: ({ theme }) => ({
+        standardSuccess: () => ({
           color: tokens.GcdsAlertSuccessText,
           backgroundColor: tokens.GcdsAlertSuccessBackground,
           '& $icon': {
             color: tokens.GcdsAlertSuccessText,
           },
         }),
-        standardWarning: ({ theme }) => ({
+        standardWarning: () => ({
           color: tokens.GcdsAlertWarningText,
           backgroundColor: tokens.GcdsAlertWarningBackground,
           '& $icon': {
@@ -313,7 +313,7 @@ export const gcdsTheme = createUnifiedTheme({
     },
     MuiAutocomplete: {
       styleOverrides: {
-        root: ({ theme }) => ({
+        root: () => ({
           '&[aria-expanded=true]': {
             backgroundColor: tokens.GcdsBgLight,
             color: tokens.GcdsTextPrimary,
@@ -340,13 +340,13 @@ export const gcdsTheme = createUnifiedTheme({
         contained: {
           boxShadow: 'none',
         },
-        containedPrimary: ({ theme }) => ({
+        containedPrimary: () => ({
           backgroundcolor: tokens.GcdsTextSecondary,
           '&:hover': {
             backgroundcolor: tokens.GcdsBgDark,
           },
         }),
-        outlinedPrimary: ({ theme }) => ({
+        outlinedPrimary: () => ({
           color: tokens.GcdsTextSecondary,
           border: `1px solid ${tokens.GcdsTextSecondary}`,
           '&:hover': {
@@ -381,7 +381,7 @@ export const gcdsTheme = createUnifiedTheme({
     },
     MuiChip: {
       styleOverrides: {
-        root: ({ theme }) => ({
+        root: () => ({
           backgroundColor: tokens.GcdsColorBlue500,
           color: tokens.GcdsTextLight,
         }),
@@ -389,7 +389,7 @@ export const gcdsTheme = createUnifiedTheme({
     },
     MuiIconButton: {
       styleOverrides: {
-        colorPrimary: ({ theme }) => ({
+        colorPrimary: () => ({
           color: tokens.GcdsTextSecondary,
         }),
       },
@@ -415,7 +415,7 @@ export const gcdsTheme = createUnifiedTheme({
     },
     MuiPaper: {
       styleOverrides: {
-        root: ({ theme }) => ({
+        root: () => ({
           backgroundColor: tokens.GcdsBgLight,
           color: tokens.GcdsTextPrimary,
         }),
@@ -423,7 +423,7 @@ export const gcdsTheme = createUnifiedTheme({
     },
     MuiSelect: {
       styleOverrides: {
-        select: ({ theme }) => ({
+        select: () => ({
           color: tokens.GcdsTextPrimary,
           '&[aria-expanded]': {
             backgroundColor: tokens.GcdsColorBlue500,

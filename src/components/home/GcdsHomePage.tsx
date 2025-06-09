@@ -1,8 +1,6 @@
 import { Content, Page } from '@backstage/core-components';
 import { HomePageSearchBar } from '@backstage/plugin-search';
-import { makeStyles, Typography } from '@material-ui/core';
-import { Link } from 'react-router-dom';
-import { configApiRef, useApi } from '@backstage/core-plugin-api';
+import { makeStyles } from '@material-ui/core';
 import { GcdsLink } from '@cdssnc/gcds-components-react';
 import { GcdsNotice } from '@cdssnc/gcds-components-react';
 import { GcdsText } from '@cdssnc/gcds-components-react';
@@ -11,7 +9,12 @@ import { GcdsHomePageCards } from './GcdsHomePageCards';
 import * as tokens from '@cdssnc/gcds-tokens/build/web/js/tokens.js'
 
 const useStyles = makeStyles({
-
+  searchBar: {
+    width: '100%',
+  },
+  searchBarOutline: {
+    borderStyle: '1px solid' + tokens.GcdsActiveBackground,
+  },
 });
 
 makeStyles({
@@ -26,12 +29,11 @@ makeStyles({
 
 export const GcdsHomePage = () => {
   const classes = useStyles();
-  const config = useApi(configApiRef);
 
   return (
     <Page themeId="home">
       <Content>
-        <section className={classes.root}>
+        <section>
           <GcdsHeading tag="h1">
             GC Developer Portal
           </GcdsHeading>
