@@ -178,7 +178,7 @@ const InnerGcdsHomePageCards = () => {
           </GcdsText>
           <GcdsText>
             <b>{t('event.aurora_when')} </b>
-            {t('event_aurora_when_description')}
+            {t('event.aurora_when_description')}
           </GcdsText>
         </>
       ),
