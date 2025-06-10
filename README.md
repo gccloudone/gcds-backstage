@@ -12,7 +12,7 @@ Install this plugin:
 
 ```shell
 # From your Backstage root directory
-git clone https://github.com/gccloudone/gcds-backstage plugins/
+git clone https://github.com/gccloudone/plugins-gcds-backstage plugins/
 yarn --cwd packages/app add @gccloudone/plugin-gcds-backstage
 ```
 

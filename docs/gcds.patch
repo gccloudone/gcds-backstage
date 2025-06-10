@@ -13,15 +13,6 @@ index 591466d..a67b35a 100644
 +    "@backstage/plugin-home-react": "^0.1.26"
 +  }
  }
-diff --git c/packages/app/css/gcds.css c/packages/app/css/gcds.css
-new file mode 100644
-index 0000000..36ea37c
---- /dev/null
-+++ c/packages/app/css/gcds.css
-@@ -0,0 +1,3 @@
-+gcds-text::part(text) {
-+  font-size: 1rem !important;
-+}
 diff --git c/packages/app/package.json c/packages/app/package.json
 index 61c449b..3f9c788 100644
 --- c/packages/app/package.json
@@ -34,10 +25,19 @@ index 61c449b..3f9c788 100644
      "@material-ui/core": "^4.12.2",
      "@material-ui/icons": "^4.9.1",
      "react": "^18.0.2",
+diff --git c/packages/app/public/favicon.ico c/packages/app/public/favicon.ico
+index 5e45e5d..7848a38 100644
+Binary files c/packages/app/public/favicon.ico and c/packages/app/public/favicon.ico differ
 diff --git c/packages/app/src/App.tsx c/packages/app/src/App.tsx
-index 89b199c..ebffc71 100644
+index 89b199c..3cff03f 100644
 --- c/packages/app/src/App.tsx
 +++ c/packages/app/src/App.tsx
+@@ -1,4 +1,4 @@
+-import { Navigate, Route } from 'react-router-dom';
++import { Route } from 'react-router-dom';
+ import { apiDocsPlugin, ApiExplorerPage } from '@backstage/plugin-api-docs';
+ import {
+   CatalogEntityPage,
 @@ -36,6 +36,14 @@ import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
  import { RequirePermission } from '@backstage/plugin-permission-react';
  import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
@@ -160,7 +160,7 @@ index c60ba62..260df4d 100644
  };
 
 diff --git c/packages/app/src/components/Root/Root.tsx c/packages/app/src/components/Root/Root.tsx
-index 31fc08d..812dbf8 100644
+index 31fc08d..3a59a9f 100644
 --- c/packages/app/src/components/Root/Root.tsx
 +++ c/packages/app/src/components/Root/Root.tsx
 @@ -1,5 +1,5 @@
@@ -170,7 +170,13 @@ index 31fc08d..812dbf8 100644
  import HomeIcon from '@material-ui/icons/Home';
  import ExtensionIcon from '@material-ui/icons/Extension';
  import LibraryBooks from '@material-ui/icons/LibraryBooks';
-@@ -27,31 +27,33 @@ import MenuIcon from '@material-ui/icons/Menu';
+@@ -21,37 +21,38 @@ import {
+   SidebarScrollWrapper,
+   SidebarSpace,
+   useSidebarOpenState,
+-  Link,
+ } from '@backstage/core-components';
+ import MenuIcon from '@material-ui/icons/Menu';
  import SearchIcon from '@material-ui/icons/Search';
  import { MyGroupsSidebarItem } from '@backstage/plugin-org';
  import GroupIcon from '@material-ui/icons/People';
@@ -179,7 +185,7 @@ index 31fc08d..812dbf8 100644
 -const useSidebarLogoStyles = makeStyles({
 -  root: {
 -    width: sidebarConfig.drawerWidthClosed,
-+const useSidebarLogoStyles = makeStyles<Theme, { sidebarOpen: boolean }>(() => ({
++const useSidebarLogoStyles = makeStyles<Theme, { sidebarOpen: boolean, themeId: string }>(() => ({
 +  root: props => ({
 +    width: 2 * sidebarConfig.drawerWidthClosed,
      height: 3 * sidebarConfig.logoHeight,
@@ -201,7 +207,7 @@ index 31fc08d..812dbf8 100644
 -  const classes = useSidebarLogoStyles();
 +  const appThemeApi = useApi(appThemeApiRef);
 +  const themeId = appThemeApi.getActiveThemeId();
-+  const classes = useSidebarLogoStyles({ themeId: themeId! });
++  const classes = useSidebarLogoStyles({ sidebarOpen: false, themeId: themeId! });
    const { isOpen } = useSidebarOpenState();
 
    return (
@@ -213,7 +219,7 @@ index 31fc08d..812dbf8 100644
      </div>
    );
  };
-@@ -66,7 +68,8 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
+@@ -66,7 +67,8 @@ export const Root = ({ children }: PropsWithChildren<{}>) => (
        <SidebarDivider />
        <SidebarGroup label="Menu" icon={<MenuIcon />}>
          {/* Global nav, not org-specific */}
@@ -223,14 +229,24 @@ index 31fc08d..812dbf8 100644
          <MyGroupsSidebarItem
            singularTitle="My Group"
            pluralTitle="My Groups"
+diff --git c/packages/app/src/css/gcds.css c/packages/app/src/css/gcds.css
+new file mode 100644
+index 0000000..36ea37c
+--- /dev/null
++++ c/packages/app/src/css/gcds.css
+@@ -0,0 +1,3 @@
++gcds-text::part(text) {
++  font-size: 1rem !important;
++}
 diff --git c/packages/app/src/index.tsx c/packages/app/src/index.tsx
-index 69d6401..f1e73bf 100644
+index 69d6401..c4fa93c 100644
 --- c/packages/app/src/index.tsx
 +++ c/packages/app/src/index.tsx
-@@ -2,5 +2,6 @@ import '@backstage/cli/asset-types';
+@@ -1,6 +1,6 @@
+ import '@backstage/cli/asset-types';
  import ReactDOM from 'react-dom/client';
  import App from './App';
- import '@backstage/canon/css/styles.css';
-+import '../css/gcds.css';
+-import '@backstage/canon/css/styles.css';
++import './css/gcds.css';
 
  ReactDOM.createRoot(document.getElementById('root')!).render(<App />);
