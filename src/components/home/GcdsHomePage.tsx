@@ -7,6 +7,8 @@ import { GcdsText } from '@cdssnc/gcds-components-react';
 import { GcdsHeading } from '@cdssnc/gcds-components-react';
 import { GcdsHomePageCards } from './GcdsHomePageCards';
 import * as tokens from '@cdssnc/gcds-tokens/build/web/js/tokens.js'
+import i18n  from '../../i18n/i18n';
+import { I18nextProvider, useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles({
   searchBar: {
@@ -29,39 +31,38 @@ makeStyles({
 
 export const GcdsHomePage = () => {
   const classes = useStyles();
+  const { t } = useTranslation();
 
   return (
-    <Page themeId="home">
-      <Content>
-        <section>
-          <GcdsHeading tag="h1">
-            GC Developer Portal
-          </GcdsHeading>
+    <I18nextProvider i18n={i18n}>
+      <Page themeId="home">
+        <Content>
+          <section>
+            <GcdsHeading tag="h1">{t('home.title')}</GcdsHeading>
 
-          <GcdsNotice type="info" noticeTitleTag="h2" noticeTitle="Provide Feedback">
-            <GcdsText>The GC Developer Portal is managed by the Product Office
-            team. Join us as we work together to create impactful solutions by{' '}
-            <GcdsLink href="mailto:aurora-aurore@ssc-spc.gc.ca">providing feedback.</GcdsLink>
+            <GcdsNotice type="info" noticeTitleTag="h2" noticeTitle={t('home.feedback_title')}>
+              <GcdsText>
+                {t('home.feedback_message')}{' '}
+                <GcdsLink href="mailto:aurora-aurore@ssc-spc.gc.ca">{t('home.feedback_link')}</GcdsLink>
+              </GcdsText>
+            </GcdsNotice>
+
+            <GcdsText marginTop="300" character-limit="false">
+              {t('home.description')}
             </GcdsText>
-          </GcdsNotice>
 
-          <GcdsText marginTop="300" character-limit="false">
-            The GC Developer Portal is a place to access common technical
-            documentation, community knowledge bases, code samples and APIs.
-          </GcdsText>
+            <HomePageSearchBar
+              classes={{ root: classes.searchBar }}
+              InputProps={{
+                classes: { notchedOutline: classes.searchBarOutline },
+              }}
+              placeholder={t('home.search_placeholder')}
+            />
+          </section>
 
-          <HomePageSearchBar
-            classes={{ root: classes.searchBar }}
-            InputProps={{
-              classes: { notchedOutline: classes.searchBarOutline },
-            }}
-            placeholder="Search all GC Developer Portal resources"
-          />
-        </section>
-
-        <GcdsHomePageCards />
-
-      </Content>
-    </Page>
+          <GcdsHomePageCards />
+        </Content>
+      </Page>
+    </I18nextProvider>
   );
 };

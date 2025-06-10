@@ -31,11 +31,13 @@
     "@cdssnc/gcds-components": "^0.34.3",
     "@cdssnc/gcds-components-react": "^0.34.3",
     "@cdssnc/gcds-fonts": "github:sylus/gcds-fonts#main",
-    "@cdssnc/gcds-tokens": "github:sylus/gcds-tokens#main",
+    "@cdssnc/gcds-tokens": "^2.12.0",
     "@cdssnc/gcds-utility": "^1.9.0",
     "@material-ui/core": "^4.12.2",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/lab": "4.0.0-alpha.61",
+    "i18next": "^25.2.1",
+    "react-i18next": "^15.5.2",
     "react-use": "^17.2.4"
   },
   "peerDependencies": {
